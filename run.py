@@ -7,26 +7,78 @@ import streamlit as st
 from app.helper.generate_description import DescriptionGenerator
 
 
+def flatten_json(y):
+    out = {}
+
+    def flatten(x, name=''):
+        if isinstance(x, dict):
+            for a in x:
+                flatten(x[a], name + a + '_')
+        elif isinstance(x, list):
+            i = 0
+            for a in x:
+                flatten(a, name + str(i) + '_')
+                i += 1
+        else:
+            out[name[:-1]] = x
+
+    flatten(y)
+    return out
+
+
 def display_sample_jsons():
     sample_json_files = ["app/static/1.json", "app/static/2.json", "app/static/3.json"]
-    columns = st.columns(3, gap="small")
+    col1, col2, col3 = st.columns(3, gap="small")
 
-    for i, col in enumerate(columns):
-        with col:
-            with st.container(height=300):
-                st.markdown(
-                    f"""
-                    <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
-                        Sample {i + 1}
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-                with open(sample_json_files[i], "r") as f:
-                    json_data = f.read()
+    with col1:
+        with st.container(height=300):
+            st.markdown(
+                """
+                <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
+                    Sample 1
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
-                json_string = json.dumps(json.loads(json_data), indent=2)
-                st.code(json_string, language="json")
+            with open(sample_json_files[0], "r") as f:
+                json_data = f.read()
+
+            json_string = json.dumps(json.loads(json_data), indent=2)
+            st.code(json_string, language="json")
+
+    with col2:
+        with st.container(height=300):
+            st.markdown(
+                """
+                <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
+                    Sample 2
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            with open(sample_json_files[1], 'r') as f:
+                data = json.load(f)
+
+            flat_data = flatten_json(data)
+            st.table(flat_data)
+
+    with col3:
+        with st.container(height=300):
+            st.markdown(
+                """
+                <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
+                    Sample 3
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+            with open(sample_json_files[2], "r") as f:
+                json_data = f.read()
+
+            json_string = json.dumps(json.loads(json_data), indent=2)
+            st.code(json_string, language="json")
 
     sample_json_number = pd.DataFrame({'first column': ["Sample - 1", "Sample - 2", "Sample - 3"]})
 
@@ -104,7 +156,8 @@ async def main():
                 bullet_points_description = await description_generator.get_bullet_point_description(data, char_limit)
                 paragraph_description = await description_generator.get_paragraph_description(data, char_limit)
             else:
-                bullet_points_description = await description_generator.get_bullet_point_description(json_data, char_limit)
+                bullet_points_description = await description_generator.get_bullet_point_description(json_data,
+                                                                                                     char_limit)
                 paragraph_description = await description_generator.get_paragraph_description(json_data, char_limit)
         display_descriptions(bullet_points_description, paragraph_description)
 
