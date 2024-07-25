@@ -1,0 +1,147 @@
+{
+  "id": 682097,
+  "name": "Demo Bid 2",
+  "company_id": 328709,
+  "campaign_id": "bggCOpABJECYvNilnsMW",
+  "amount": 1250,
+  "type": {
+    "code": "per_vehicle",
+    "description": "Per vehicle"
+  },
+  "status": {
+    "code": "active",
+    "description": "Active"
+  },
+  "vehicle_categories": [
+    {
+      "code": "any",
+      "description": "Any"
+    }
+  ],
+  "only_without_title": false,
+  "vehicle_titles": [
+    {
+      "code": "clean",
+      "description": "Clean"
+    }
+  ],
+  "vehicle_uses": [
+    {
+      "code": "any",
+      "description": "Any"
+    }
+  ],
+  "is_pre_1981_vehicles_supported": true,
+  "year_range_type": {
+    "code": "specific_range",
+    "description": "Specific Range"
+  },
+  "from_year": 1980,
+  "to_year": 1980,
+  "vehicle_body_styles": [
+    "Car"
+  ],
+  "vehicle_conditions": {
+    "only_that_run_and_drive": false,
+    "only_that_starts": false,
+    "only_with_engine_and_transmission": false,
+    "only_with_all_tires": false,
+    "only_with_no_flat_tires": false,
+    "only_with_little_or_no_exterior_damage": false,
+    "only_with_all_exterior_parts_panels_attached": false,
+    "only_with_mirror_glass_light_in_place_with_no_damage": false,
+    "only_with_interior_parts_in_good_condition": false,
+    "only_with_no_flood_fire_damage": false,
+    "only_with_catalytic_converter": false,
+    "only_with_verifiable_mileage": false
+  },
+  "makes": [
+    {
+      "make": "AMC",
+      "models": [
+        {
+          "model": "Concord",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "Eagle",
+          "body_style": "Car",
+          "trims": []
+        }
+      ]
+    },
+    {
+      "make": "Cadillac",
+      "models": [
+        {
+          "model": "Deville",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "Eldorado",
+          "body_style": "Car",
+          "trims": []
+        }
+      ]
+    },
+    {
+      "make": "Chevrolet",
+      "models": [
+        {
+          "model": "Citation",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "Corvette",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "Impala",
+          "body_style": "Car",
+          "trims": []
+        }
+      ]
+    },
+    {
+      "make": "Dodge",
+      "models": []
+    },
+    {
+      "make": "Fiat",
+      "models": [
+        {
+          "model": "Brava",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "X-1/9",
+          "body_style": "Car",
+          "trims": []
+        }
+      ]
+    },
+    {
+      "make": "Plymouth",
+      "models": []
+    },
+    {
+      "make": "Saab",
+      "models": [
+        {
+          "model": "99",
+          "body_style": "Car",
+          "trims": []
+        }
+      ]
+    },
+    {
+      "make": "Toyota",
+      "models": []
+    }
+  ]
+}

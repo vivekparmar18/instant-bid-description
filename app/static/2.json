@@ -1,0 +1,161 @@
+{
+  "id": 682095,
+  "name": "Demo Bid 1 - without title & ton",
+  "description": "Demo bid Description 1",
+  "company_id": 328709,
+  "campaign_id": "rwgkOpABJECYvNilwcOr",
+  "amount": 580,
+  "max_amount": 1000,
+  "type": {
+    "code": "per_ton",
+    "description": "Per ton"
+  },
+  "status": {
+    "code": "active",
+    "description": "Active"
+  },
+  "vehicle_categories": [
+    {
+      "code": "any",
+      "description": "Any"
+    }
+  ],
+  "only_without_title": true,
+  "vehicle_titles": [],
+  "vehicle_uses": [
+    {
+      "code": "any",
+      "description": "Any"
+    }
+  ],
+  "is_pre_1981_vehicles_supported": false,
+  "year_range_type": {
+    "code": "newer_than_from_year",
+    "description": "Newer Than From Year"
+  },
+  "from_year": 2023,
+  "vehicle_body_styles": [
+    "Any"
+  ],
+  "vehicle_conditions": {
+    "only_that_run_and_drive": true,
+    "only_that_starts": true,
+    "only_with_engine_and_transmission": true,
+    "only_with_all_tires": true,
+    "only_with_no_flat_tires": false,
+    "only_with_little_or_no_exterior_damage": true,
+    "only_with_all_exterior_parts_panels_attached": false,
+    "only_with_mirror_glass_light_in_place_with_no_damage": false,
+    "only_with_interior_parts_in_good_condition": false,
+    "only_with_no_flood_fire_damage": false,
+    "only_with_catalytic_converter": false,
+    "only_with_verifiable_mileage": false,
+    "mileage": 150000
+  },
+  "makes": [
+    {
+      "make": "Acura",
+      "models": []
+    },
+    {
+      "make": "Alfa Romeo",
+      "models": []
+    },
+    {
+      "make": "Aston Martin",
+      "models": []
+    },
+    {
+      "make": "Audi",
+      "models": []
+    },
+    {
+      "make": "Bentley",
+      "models": []
+    },
+    {
+      "make": "BMW",
+      "models": []
+    },
+    {
+      "make": "Cruise",
+      "models": []
+    },
+    {
+      "make": "Dodge",
+      "models": []
+    },
+    {
+      "make": "Ferrari",
+      "models": []
+    },
+    {
+      "make": "Fiat",
+      "models": []
+    },
+    {
+      "make": "Fisker",
+      "models": []
+    },
+    {
+      "make": "Ford",
+      "models": []
+    },
+    {
+      "make": "Freightliner",
+      "models": []
+    },
+    {
+      "make": "GEM",
+      "models": [
+        {
+          "model": "e2",
+          "door_count": 2,
+          "body_type": "Coupe",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "e4",
+          "door_count": 4,
+          "body_type": "Sedan",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "E6",
+          "door_count": 6,
+          "body_type": "Wagon",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "eL XD",
+          "door_count": 2,
+          "body_type": "Coupe",
+          "body_style": "Car",
+          "trims": []
+        }
+      ]
+    },
+    {
+      "make": "Infiniti",
+      "models": [
+        {
+          "model": "QX50",
+          "door_count": 4,
+          "body_type": "SUV",
+          "body_style": "Car",
+          "trims": []
+        },
+        {
+          "model": "QX55",
+          "door_count": 4,
+          "body_type": "SUV",
+          "body_style": "SUV",
+          "trims": []
+        }
+      ]
+    }
+  ]
+}
