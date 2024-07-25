@@ -55,7 +55,6 @@ class DescriptionGenerator:
         """ This method is used to format the data and prepare chunks """
 
         raw_text = json_data
-        print(f"Number of tokens: {self.bullet_anthropic_llm.get_num_tokens(raw_text)}")
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=200)
         texts = text_splitter.split_text(raw_text)
         docs = [Document(page_content=t) for t in texts]
@@ -79,7 +78,8 @@ class DescriptionGenerator:
         lines = text.split('\n')
         if await self.__first_line_remove(lines[0], self.reference_description_first_last_line):
             lines = lines[1:]
-
+        if await self.__last_line_remove(lines[-1], self.reference_description_first_last_line):
+            lines = lines[:-1]
         modified_text = '\n'.join(lines)
         return modified_text
 
@@ -107,7 +107,7 @@ class DescriptionGenerator:
 
         description = await self.__generate_description(docs, query, self.bullet_anthropic_llm)
         description = description['output_text']
-
+        print(f"GenAI Response for Bullet Point Description: {description}")
         description = await self.__post_processing(description)
         return description
 
@@ -123,6 +123,5 @@ class DescriptionGenerator:
 
         description = await self.__generate_description(docs, query, self.paragraph_anthropic_llm)
         description = description['output_text']
-
-        description = await self.__post_processing(description)
+        print(f"GenAI Response for Paragraph Description: {description}")
         return description

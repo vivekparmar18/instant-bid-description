@@ -22,7 +22,6 @@ def display_sample_jsons():
     num = re.findall(r'\d+', sample_number)
     index_num = int(num[0])
     document_path = sample_json_files[index_num - 1]
-    print(f"Sample {num} is processed!")
     with open(document_path, "r") as f:
         json_data = f.read()
 
