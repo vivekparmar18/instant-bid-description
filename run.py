@@ -7,80 +7,12 @@ import streamlit as st
 from app.helper.generate_description import DescriptionGenerator
 
 
-def flatten_json(y):
-    out = {}
-
-    def flatten(x, name=''):
-        if isinstance(x, dict):
-            for a in x:
-                flatten(x[a], name + a + '_')
-        elif isinstance(x, list):
-            i = 0
-            for a in x:
-                flatten(a, name + str(i) + '_')
-                i += 1
-        else:
-            out[name[:-1]] = x
-
-    flatten(y)
-    return out
-
-
 def display_sample_jsons():
-    sample_json_files = ["app/static/1.json", "app/static/2.json", "app/static/3.json"]
-    col1, col2, col3 = st.columns(3, gap="small")
+    sample_json_files = ["app/static/1.json", "app/static/2.json", "app/static/3.json", "app/static/4.json",
+                         "app/static/5.json"]
 
-    with col1:
-        with st.container(height=300):
-            st.markdown(
-                """
-                <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
-                    Sample 1
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-            with open(sample_json_files[0], "r") as f:
-                json_data = f.read()
-
-            json_string = json.dumps(json.loads(json_data), indent=2)
-            st.code(json_string, language="json")
-
-    with col2:
-        with st.container(height=300):
-            st.markdown(
-                """
-                <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
-                    Sample 2
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-            with open(sample_json_files[1], 'r') as f:
-                data = json.load(f)
-
-            flat_data = flatten_json(data)
-            st.table(flat_data)
-
-    with col3:
-        with st.container(height=300):
-            st.markdown(
-                """
-                <div style="text-align: center; font-weight: bold; font-size:20px; padding-bottom:10px">
-                    Sample 3
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            with open(sample_json_files[2], "r") as f:
-                json_data = f.read()
-
-            json_string = json.dumps(json.loads(json_data), indent=2)
-            st.code(json_string, language="json")
-
-    sample_json_number = pd.DataFrame({'first column': ["Sample - 1", "Sample - 2", "Sample - 3"]})
+    sample_json_number = pd.DataFrame(
+        {'first column': ["Sample - 1", "Sample - 2", "Sample - 3", "Sample - 4", "Sample - 5"]})
 
     sample_number = st.selectbox(
         "Select Sample Number",
@@ -119,17 +51,41 @@ def get_char_limit():
     return char_limit
 
 
-def display_descriptions(bullet_points_description, paragraph_description):
+def display_descriptions(formatted_data, paragraph_description, bullet_point_description):
     col1, col2 = st.columns(2)
 
     with col1:
         with st.container(height=600):
-            st.subheader('Bullet Point Description', divider='red')
-            st.write(bullet_points_description)
+            st.subheader('Instant Bid API Response', divider='red')
+            st.code(formatted_data)
     with col2:
         with st.container(height=600):
-            st.subheader('Paragraph Description', divider='red')
-            st.write(paragraph_description)
+            tabs = st.tabs(["Paragraph Description", "Bullet Point Description"])
+            with tabs[0]:
+                st.write(paragraph_description)
+            with tabs[1]:
+                st.code(bullet_point_description)
+
+
+def format_json(data, indent=0):
+    formatted_str = ""
+    if isinstance(data, dict):
+        for key, value in data.items():
+            if isinstance(value, dict):
+                formatted_str += " " * indent + f"{key}:\n"
+                formatted_str += format_json(value, indent + 4)
+            elif isinstance(value, list):
+                formatted_str += " " * indent + f"{key}:\n"
+                for item in value:
+                    formatted_str += format_json(item, indent + 4)
+            else:
+                formatted_str += " " * indent + f"{key}: {value}\n"
+    elif isinstance(data, list):
+        for item in data:
+            formatted_str += format_json(item, indent)
+    else:
+        formatted_str += " " * indent + f"- {data}\n"
+    return formatted_str
 
 
 async def main():
@@ -153,13 +109,15 @@ async def main():
     if st.button("Generate Description"):
         with st.spinner("Generating Description..."):
             if data:
-                bullet_points_description = await description_generator.get_bullet_point_description(data, char_limit)
+                formatted_data = format_json(data)
                 paragraph_description = await description_generator.get_paragraph_description(data, char_limit)
+                bullet_point_description = await description_generator.get_bullet_point_description(data, char_limit)
             else:
-                bullet_points_description = await description_generator.get_bullet_point_description(json_data,
-                                                                                                     char_limit)
+                formatted_data = format_json(json_data)
                 paragraph_description = await description_generator.get_paragraph_description(json_data, char_limit)
-        display_descriptions(bullet_points_description, paragraph_description)
+                bullet_point_description = await description_generator.get_bullet_point_description(json_data,
+                                                                                                    char_limit)
+        display_descriptions(formatted_data, paragraph_description, bullet_point_description)
 
 
 if __name__ == "__main__":

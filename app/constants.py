@@ -16,9 +16,10 @@ REFERENCE_DESCRIPTION_FIRST_LAST_LINE = [
     "This summary covers all",
     "This JSON file describes",
     "Here's a detailed description",
-    "This bid is focused"
+    "This bid is focused",
+    "All models are listed"
 ]
 
 
 class Messages:
-    BLANK_PDF = "It seems that the json data you provided is blank. Unfortunately, I can't generate a description from empty content. Please upload a json with readable text."
+    BLANK_JSON = "It seems that the json data you provided is blank. Unfortunately, I can't generate a description from empty content. Please upload a json with readable text."

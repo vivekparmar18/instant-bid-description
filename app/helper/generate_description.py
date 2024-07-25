@@ -89,7 +89,7 @@ class DescriptionGenerator:
         json_data = json.dumps(document_path)
 
         if not json_data:
-            return Messages.BLANK_PDF
+            return Messages.BLANK_JSON
 
         docs = await self.__data_formatter(json_data)
 
