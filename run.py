@@ -22,6 +22,7 @@ def display_sample_jsons():
     num = re.findall(r'\d+', sample_number)
     index_num = int(num[0])
     document_path = sample_json_files[index_num - 1]
+    print(f"Sample {num} is processed!")
     with open(document_path, "r") as f:
         json_data = f.read()
 
@@ -40,8 +41,7 @@ def get_json_file():
 
 
 def get_char_limit():
-    chars_number = pd.DataFrame({'first column': ["500 Characters", "1500 Characters", "2000 Characters"]})
-
+    chars_number = pd.DataFrame({'first column': ["2000 Characters", "1500 Characters", "500 Characters"]})
     char_limit = st.selectbox(
         'Select Character Limit',
         chars_number['first column']
@@ -50,7 +50,7 @@ def get_char_limit():
     return char_limit
 
 
-def display_descriptions(formatted_data, paragraph_description, bullet_point_description):
+def display_descriptions(formatted_data, paragraph_description):
     col1, col2 = st.columns(2)
 
     with col1:
@@ -59,11 +59,8 @@ def display_descriptions(formatted_data, paragraph_description, bullet_point_des
             st.code(formatted_data)
     with col2:
         with st.container(height=600):
-            tabs = st.tabs(["Paragraph Description", "Bullet Point Description"])
-            with tabs[0]:
-                st.write(paragraph_description)
-            with tabs[1]:
-                st.code(bullet_point_description)
+            st.subheader('Paragraph Description', divider='red')
+            st.write(paragraph_description)
 
 
 def format_json(data, indent=0):
@@ -95,6 +92,7 @@ async def main():
     )
 
     st.title("Instant Bid Description")
+    st.divider()
     st.subheader("Generate description from Instant Bids with ease !🚗")
 
     json_data = display_sample_jsons()
@@ -110,13 +108,10 @@ async def main():
             if data:
                 formatted_data = format_json(data)
                 paragraph_description = await description_generator.get_paragraph_description(data, char_limit)
-                bullet_point_description = await description_generator.get_bullet_point_description(data, char_limit)
             else:
                 formatted_data = format_json(json_data)
                 paragraph_description = await description_generator.get_paragraph_description(json_data, char_limit)
-                bullet_point_description = await description_generator.get_bullet_point_description(json_data,
-                                                                                                    char_limit)
-        display_descriptions(formatted_data, paragraph_description, bullet_point_description)
+        display_descriptions(formatted_data, paragraph_description)
 
 
 if __name__ == "__main__":

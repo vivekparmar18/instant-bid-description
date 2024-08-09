@@ -1,1 +1,202 @@
-{"id":682096,"name":"Trucks in New york","description":"Contains bids of Ford Trucks in new york","company_id":333798,"campaign_id":"aRrn2ZABJECYvNilX1ps","amount":4500,"type":{"code":"per_vehicle","description":"Per vehicle"},"status":{"code":"active","description":"Active"},"vehicle_categories":[{"code":"any","description":"Any"}],"only_without_title":false,"vehicle_titles":[{"code":"any","description":"Any"}],"vehicle_uses":[{"code":"any","description":"Any"}],"is_pre_1981_vehicles_supported":false,"year_range_type":{"code":"all_years","description":"All Years"},"vehicle_body_styles":["Truck"],"vehicle_conditions":{"only_that_run_and_drive":true,"only_that_starts":true,"only_with_engine_and_transmission":true,"only_with_all_tires":true,"only_with_no_flat_tires":false,"only_with_little_or_no_exterior_damage":false,"only_with_all_exterior_parts_panels_attached":false,"only_with_mirror_glass_light_in_place_with_no_damage":false,"only_with_interior_parts_in_good_condition":false,"only_with_no_flood_fire_damage":false,"only_with_catalytic_converter":false,"only_with_verifiable_mileage":false},"makes":[{"make":"Ford","models":[{"model":"F","door_count":0,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F","door_count":2,"cab_type":"Extended Cab","body_style":"Truck","trims":[]},{"model":"F","door_count":2,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F","door_count":4,"cab_type":"Crew Cab","body_style":"Truck","trims":[]},{"model":"F-150 Heritage","door_count":2,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F-150 Heritage","door_count":4,"cab_type":"Extended Cab","body_style":"Truck","trims":[]},{"model":"F100","door_count":0,"body_style":"Truck","trims":[]},{"model":"F100","door_count":0,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F100","door_count":0,"cab_type":"Unknown","body_style":"Truck","trims":[]},{"model":"F100","door_count":2,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F100","door_count":2,"cab_type":"Unknown","body_style":"Truck","trims":[]},{"model":"F150","door_count":0,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F150","door_count":2,"cab_type":"Extended Cab","body_style":"Truck","trims":[]},{"model":"F150","door_count":2,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F250","door_count":0,"body_style":"Truck","trims":[]},{"model":"F250","door_count":0,"cab_type":"Extended Cab","body_style":"Truck","trims":[]},{"model":"F250","door_count":0,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F250","door_count":2,"cab_type":"Extended Cab","body_style":"Truck","trims":[]},{"model":"F250","door_count":2,"cab_type":"Regular Cab","body_style":"Truck","trims":[]},{"model":"F250","door_count":2,"cab_type":"Unknown","body_style":"Truck","trims":[]}]}]}
+{
+  "id":682096,
+  "name":"Trucks in New york",
+  "description":"Contains bids of Ford Trucks in new york",
+  "company_id":333798,
+  "campaign_id":"aRrn2ZABJECYvNilX1ps",
+  "amount":4500,
+  "type":{
+    "code":"per_vehicle",
+    "description":"Per vehicle"
+  },
+  "status":{
+    "code":"active",
+    "description":"Active"
+  },
+  "vehicle_categories":[
+    {
+      "code":"any",
+      "description":"Any"
+    }
+  ],
+  "only_without_title":false,
+  "vehicle_titles":[
+    {
+      "code":"any",
+      "description":"Any"
+    }
+  ],
+  "vehicle_uses":[
+    {
+      "code":"any",
+      "description":"Any"
+    }
+  ],
+  "is_pre_1981_vehicles_supported":false,
+  "year_range_type":{
+    "code":"all_years",
+    "description":"All Years"
+  },
+  "vehicle_body_styles":[
+    "Truck"
+  ],
+  "vehicle_conditions":{
+    "only_that_run_and_drive":true,
+    "only_that_starts":true,
+    "only_with_engine_and_transmission":true,
+    "only_with_all_tires":true,
+    "only_with_no_flat_tires":false,
+    "only_with_little_or_no_exterior_damage":false,
+    "only_with_all_exterior_parts_panels_attached":false,
+    "only_with_mirror_glass_light_in_place_with_no_damage":false,
+    "only_with_interior_parts_in_good_condition":false,
+    "only_with_no_flood_fire_damage":false,
+    "only_with_catalytic_converter":false,
+    "only_with_verifiable_mileage":false
+  },
+  "makes":[
+    {
+      "make":"Ford",
+      "models":[
+        {
+          "model":"F",
+          "door_count":0,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F",
+          "door_count":2,
+          "cab_type":"Extended Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F",
+          "door_count":2,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F",
+          "door_count":4,
+          "cab_type":"Crew Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F-150 Heritage",
+          "door_count":2,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F-150 Heritage",
+          "door_count":4,
+          "cab_type":"Extended Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F100",
+          "door_count":0,
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F100",
+          "door_count":0,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F100",
+          "door_count":0,
+          "cab_type":"Unknown",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F100",
+          "door_count":2,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F100",
+          "door_count":2,
+          "cab_type":"Unknown",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F150",
+          "door_count":0,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F150",
+          "door_count":2,
+          "cab_type":"Extended Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F150",
+          "door_count":2,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F250",
+          "door_count":0,
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F250",
+          "door_count":0,
+          "cab_type":"Extended Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F250",
+          "door_count":0,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F250",
+          "door_count":2,
+          "cab_type":"Extended Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F250",
+          "door_count":2,
+          "cab_type":"Regular Cab",
+          "body_style":"Truck",
+          "trims":[ ]
+        },
+        {
+          "model":"F250",
+          "door_count":2,
+          "cab_type":"Unknown",
+          "body_style":"Truck",
+          "trims":[ ]
+        }
+      ]
+    }
+  ]
+}
