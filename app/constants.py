@@ -15,5 +15,10 @@ class Prompts:
     """
 
 
+class ApiUrls:
+    ACCESS_TOKEN = "https://staging-auth.peddle.com/identity-provider/connect/token"
+    INSTANT_BID_JSON = ""
+
+
 class Messages:
     BLANK_PDF = "It seems that the json data you provided is blank. Unfortunately, I can't generate a description from empty content. Please upload a json with readable text."
