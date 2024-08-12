@@ -5,47 +5,59 @@ import traceback
 from app.constants import ApiUrls, ClientCredentials
 
 
-def generate_access_token():
-    """ This method is used to generate the Access Token"""
+class InvokeAPI:
 
-    try:
-        payload = f'client_id={ClientCredentials.CLIENT_ID}&client_secret={ClientCredentials.CLIENT_SECRET}&grant_type=client_credentials&scope=buy%3Ainstant-bids%3Aread'
-        headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        response = requests.request("POST", ApiUrls.ACCESS_TOKEN, headers=headers, data=payload)
+    def __init__(self):
+        self.access_token = None
 
-        if response.status_code == 200:
-            data = json.loads(response.text)
-            return data['access_token']
-        else:
-            raise Exception
+    def __generate_access_token(self):
+        """ This method is used to generate the Access Token"""
 
-    except Exception as e:
-        print(f"[Access Token][Error] {e} -> {traceback.format_exc()}")
-        return None
+        try:
+            payload = f'client_id={ClientCredentials.CLIENT_ID}&client_secret={ClientCredentials.CLIENT_SECRET}&grant_type=client_credentials&scope=buy%3Ainstant-bids%3Aread'
+            headers = {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+            response = requests.request("POST", ApiUrls.ACCESS_TOKEN, headers=headers, data=payload)
 
+            if response.status_code == 200:
+                data = json.loads(response.text)
+                return data['access_token']
+            else:
+                raise Exception
 
-def get_instant_bid_response(access_token):
-    """ This method is used to get the instant bid json """
+        except Exception as e:
+            print(f"[Access Token][Error] {e} -> {traceback.format_exc()}")
+            return None
 
-    try:
-        payload = f'bearer_token={access_token}'
-        headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        response = requests.request("GET", ApiUrls.INSTANT_BID_JSON, headers=headers, data=payload)
+    def __get_instant_bid_response(self, access_token, instant_bid_id):
+        """ This method is used to get the instant bid json """
 
-        if response.status_code == 200:
-            return json.loads(response.text)
+        try:
+            payload = {}
+            headers = {
+                'Authorization': f'Bearer {access_token}'
+            }
 
-        elif response.status_code == 401:
-            new_access_token = generate_access_token()
-            return get_instant_bid_response(new_access_token)
+            instant_bid_api_url = ApiUrls.INSTANT_BID_JSON.format(instant_bid_id=instant_bid_id)
+            response = requests.request("GET", instant_bid_api_url, headers=headers, data=payload)
 
-        else:
-            raise Exception
+            if response.status_code == 200:
+                return json.loads(response.text)
 
-    except Exception as e:
-        print(f"[Instant Bid API][Error] {e} -> {traceback.format_exc()}")
-        return None
+            elif response.status_code == 401:
+                self.access_token = self.__generate_access_token()
+                return self.__get_instant_bid_response(self.access_token, instant_bid_id)
+
+            else:
+                raise Exception
+
+        except Exception as e:
+            print(f"[Instant Bid API][Error] {e} -> {traceback.format_exc()}")
+            return None
+
+    def invoke_instant_bid_api(self, instant_bid_id):
+        self.access_token = self.__generate_access_token()
+        api_response = self.__get_instant_bid_response(self.access_token, instant_bid_id)
+        return api_response
+

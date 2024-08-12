@@ -17,7 +17,7 @@ class Prompts:
 
 class ApiUrls:
     ACCESS_TOKEN = "https://staging-auth.peddle.com/identity-provider/connect/token"
-    INSTANT_BID_JSON = ""
+    INSTANT_BID_JSON = "https://staging-service.peddle.com/buyer/v1/instant-bids/{instant_bid_id}"
 
 
 class Messages:
