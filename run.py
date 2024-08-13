@@ -28,7 +28,7 @@ async def main():
     st.title("Instant Bid - Description Generator PoC")
     st.divider()
     st.subheader("Provide your Instant Bid ID to generate description\n "
-                 "(Sample IDs: 682095, 682096, 682097, 682101, 682102, 756349)")
+                 "(Sample IDs: 756335, 756336, 756337, 756338, 756339)")
     instant_bid_id = st.text_input("Instant Bid ID", label_visibility="collapsed")
 
     invoke_api = InvokeAPI()

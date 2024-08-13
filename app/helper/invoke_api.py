@@ -60,4 +60,3 @@ class InvokeAPI:
         self.access_token = self.__generate_access_token()
         api_response = self.__get_instant_bid_response(self.access_token, instant_bid_id)
         return api_response
-

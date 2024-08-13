@@ -14,6 +14,15 @@ class Prompts:
     Note: Ensure the description is based solely on the given input. Avoid adding any additional information or suggestions not present in the input. Do not make bullet point description. Do not add the last line with any suggestions or additional information regarding the description.
     """
 
+    IMPROVE_PROMPT = """
+    Please refine the given description to make it more natural and clear, similar to the example provided below:
+
+    Example:
+    - The bid is available on a per-vehicle basis and is applicable to any vehicle category with a clean title. It is specifically designed to support pre-1981 vehicles, with a focus on cars from 1980. Eligible makes and models include AMC (such as Concord, Eagle), Cadillac (such as Deville, Eldorado), Chevrolet (such as Citation, Corvette), Dodge, Fiat (such as Brava, X-1/9), Plymouth, Saab (model 99), and Toyota. This bid is exclusive to cars and does not impose any specific conditions or mileage requirements.
+    
+    Note: The refined description should be based solely on the provided input, without adding any extra information, suggestions, or bullet points. Avoid including any concluding remarks or additional instructions.
+    """
+
 
 class ApiUrls:
     ACCESS_TOKEN = "https://staging-auth.peddle.com/identity-provider/connect/token"
