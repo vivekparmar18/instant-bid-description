@@ -29,17 +29,36 @@ async def main():
     st.divider()
     st.subheader("Provide your Instant Bid ID to generate description\n "
                  "(Sample IDs: 756335, 756336, 756337, 756338, 756339)")
-    instant_bid_id = st.text_input("Instant Bid ID", label_visibility="collapsed")
 
     invoke_api = InvokeAPI()
     description_generator = DescriptionGenerator()
 
-    if st.button("Generate"):
+    is_button_clicked = False
+    api_response, paragraph_description = None, None
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        instant_bid_id = st.text_input("Instant Bid ID", label_visibility="collapsed",
+                                       placeholder="Enter Instant Bid ID")
+
+    with col2:
+        if st.button("Generate"):
+            is_button_clicked = True
+
+    with col3:
+        print()
+
+    with col4:
+        print()
+
+    if is_button_clicked:
         with st.spinner("Fetching Instant Bid Data..."):
             api_response = invoke_api.invoke_instant_bid_api(instant_bid_id)
 
         with st.spinner("Generating Description..."):
             paragraph_description = await description_generator.get_paragraph_description(api_response, 2000)
+
         display_descriptions(api_response, paragraph_description)
 
 
